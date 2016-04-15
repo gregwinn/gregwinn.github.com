@@ -1,0 +1,377 @@
+body {
+  background-color: #333;
+  font: 300 21px Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+a {
+  color: #70C1B3;
+}
+
+a.logo {
+  background: url(/images/logo_white.png) no-repeat;
+  width: 179px;
+  height: 28px;
+  text-indent: -9999px;
+  margin-top: 15px;
+}
+.page-content {
+  width: 980px;
+  margin: 0 auto;
+}
+.wrapper {
+  padding: 10px;
+}
+
+h1 {
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  font-size: 2.3em;
+}
+h1, h2, h3, h4, h5 {
+  color: #FFE066;
+}
+
+.red {
+  color: #F25F5C;
+}
+.yellow {
+  color: #FFE066;
+}
+hr {
+  margin: 20px 0;
+  color: #333;
+  background: #333;
+}
+
+.home {
+  padding: 20px 40px 30px;
+}
+#twitter {
+  margin: 0 auto;
+  width: 500px;
+}
+#welcome_text {
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+#ruby_text {
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+
+.img-left {
+  float: left;
+  margin: 20px 28px 20px 0;
+}
+
+
+article {
+  padding: 40px 40px 30px;
+  background: #50514F;
+  border-radius: 12px;
+  word-wrap: break-word;
+}
+article p {
+  color: #D2D2D2;
+  line-height: 1.5em;
+  font-size: 21px;
+}
+article ul li {
+  line-height: 1.5em;
+  font-size: 21px;
+}
+
+ul.post-list li {
+  line-height: 1em;
+}
+
+article .banner {
+  margin: 30px 0 30px -50px;
+  padding: 20px 20px 20px 50px;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.2),inset 0 -1px 0 rgba(0,0,0,0.3);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+  article .banner a {
+    color: #fff;
+  }
+article .note {
+  background: #F25F5C;
+}
+  article .banner p, article .banner h3 {
+    color: #fff;
+  }
+article .callout {
+  background: #247BA0;
+}
+
+article .info {
+  background: #FFE066;
+}
+  article .info p, article .info h3, article .info a {
+    color: #504722;
+  }
+
+  article .banner p {
+    font-size: .80em;
+  }
+  article .banner h3 {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+
+.project-box {
+  float: left;
+  height: 250px;
+  width: 40%;
+  background: #247BA0;
+  border-radius: 8px;
+  margin: 16px;
+  padding: 16px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.2),inset 0 -1px 0 rgba(0,0,0,0.3);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+  .project-box h5 {
+    font-weight: bold;
+    font-size: 1.3em;
+    text-align: center;
+  }
+/**
+ * Site header
+ */
+.site-header {
+    border-top: 5px solid $grey-color-dark;
+    min-height: 56px;
+
+    // Positioning context for the mobile navigation icon
+    position: relative;
+}
+
+.site-title {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 56px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    float: left;
+
+    &,
+    &:visited {
+        color: $grey-color-dark;
+    }
+}
+
+.site-nav {
+    float: right;
+    line-height: 56px;
+
+    .menu-icon {
+        display: none;
+    }
+
+    .page-link {
+        color: $text-color;
+        line-height: $base-line-height;
+
+        // Gaps between nav items, but not on the last one
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+
+    @include media-query($on-palm) {
+        position: absolute;
+        top: 9px;
+        right: $spacing-unit / 2;
+        background-color: $background-color;
+        border: 1px solid $grey-color-light;
+        border-radius: 5px;
+        text-align: right;
+
+        .menu-icon {
+            display: block;
+            float: right;
+            width: 36px;
+            height: 26px;
+            line-height: 0;
+            padding-top: 10px;
+            text-align: center;
+
+            > svg {
+                width: 18px;
+                height: 15px;
+
+                path {
+                    fill: #D2D2D2;
+                }
+            }
+        }
+
+        .trigger {
+            clear: both;
+            display: none;
+        }
+
+        &:hover .trigger {
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .page-link {
+            display: block;
+            padding: 5px 10px;
+
+            &:not(:last-child) {
+                margin-right: 0;
+            }
+            margin-left: 20px;
+        }
+    }
+}
+
+
+
+/**
+ * Site footer
+ */
+.site-footer {
+    border-top: 1px solid $grey-color-light;
+    padding: $spacing-unit 0;
+}
+
+.footer-heading {
+    font-size: 18px;
+    margin-bottom: $spacing-unit / 2;
+}
+
+.contact-list,
+.social-media-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.footer-col-wrapper {
+    font-size: 15px;
+    color: #D2D2D2;
+    margin-left: -$spacing-unit / 2;
+    @extend %clearfix;
+}
+
+.footer-col {
+    float: left;
+    margin-bottom: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;
+}
+
+.footer-col-1 {
+    width: -webkit-calc(35% - (#{$spacing-unit} / 2));
+    width:         calc(35% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-2 {
+    width: -webkit-calc(20% - (#{$spacing-unit} / 2));
+    width:         calc(20% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-3 {
+    width: -webkit-calc(45% - (#{$spacing-unit} / 2));
+    width:         calc(45% - (#{$spacing-unit} / 2));
+}
+
+@include media-query($on-laptop) {
+    .footer-col-1,
+    .footer-col-2 {
+        width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+        width:         calc(50% - (#{$spacing-unit} / 2));
+    }
+
+    .footer-col-3 {
+        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+        width:         calc(100% - (#{$spacing-unit} / 2));
+    }
+}
+
+@include media-query($on-palm) {
+    .footer-col {
+        float: none;
+        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+        width:         calc(100% - (#{$spacing-unit} / 2));
+    }
+}
+
+
+
+/**
+ * Page content
+ */
+.page-content {
+    padding: $spacing-unit 0;
+}
+
+.page-heading {
+    font-size: 20px;
+}
+
+.post-list {
+    margin-left: 0;
+    list-style: none;
+
+    > li {
+    }
+}
+
+.post-meta {
+    font-size: $small-font-size;
+    color: $text-color;
+}
+
+.post-link {
+    display: block;
+    font-size: 24px;
+}
+
+
+
+/**
+ * Posts
+ */
+.post-header {
+    margin-bottom: $spacing-unit;
+}
+
+.post-title {
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1;
+
+    @include media-query($on-laptop) {
+        font-size: 36px;
+    }
+}
+
+.post-content {
+    margin-bottom: $spacing-unit;
+
+    h2 {
+        font-size: 32px;
+
+        @include media-query($on-laptop) {
+            font-size: 28px;
+        }
+    }
+
+    h3 {
+        font-size: 26px;
+
+        @include media-query($on-laptop) {
+            font-size: 22px;
+        }
+    }
+
+    h4 {
+        font-size: 20px;
+
+        @include media-query($on-laptop) {
+            font-size: 18px;
+        }
+    }
+}

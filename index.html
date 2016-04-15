@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<div class="home">
+  <h1>Hello!</h1>
+  <p id="welcome_text">My name is <span class="red">Greg Winn</span> and I am a Ruby developer, specializing in web application development. Take a look at some of my projects, then drop me a line if you want to talk!</p>
+</div>
+
+<div class="home">
+  <p id="ruby_text"><img class="img-left" src="/images/ruby-logo-5121.png" alt="Ruby" /> I have been a software and electrical hardware engineer for over a decade.
+  Getting my electrical engineering start with the National Association of
+  Rocketry, building guidance and avoidance systems for high powered rockets.
+  I have successfully launched many web platforms and SaaS based products. A
+  United States Air Force veteran, I have also worked and contracted for some of
+  the top companies and organizations.</p>
+</div>
+
+<div class="home">
+  <h1>Latest Updates</h1>
+</div>
+{% for post in site.posts limit:3 %}
+<div class="home">
+  <article>
+    <h2><a href="{{post.url}}">{{post.title}}</a></h2>
+    <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+    {{post.content}}
+  </article>
+</div>
+{% endfor %}
