@@ -7,8 +7,9 @@ categories: update api iot
 
 THINaer is an IoT based company that offers an API that provides proximity and environmental information based on deployed <span class="yellow">"iris"</span> (AKA Beacons) and it's <span class="yellow">"Cirrus"</span> (an IoT Gateway). The iris devices are movable or static based on use case and the Cirrus is always static in a fixed location. iris transmits it's signal at a set interval along with any other sensor data the iris may have, this can include; internal chip temperature on the “ii12”, external temperature and relative humidity on the “ii18e”, and finaly movement detection using an accelerometer on the “ii18a”.
 
-![iris from THINaer](https://raw.githubusercontent.com/gregwinn/gregwinn.github.com/master/images/Iris64.png)
-
+<div class="white-box">
+  <img src="/images/Iris64.png" alt="iris from THINaer" />
+</div>
 
 ### The Hardware Technologie
 THINaer is using the latest in BLE 4.1 technologie to transmit its packet over a custom protocol. This protocol can be picked up by any BLE device that can read device packets, tho because this is a custom proprietary protocol designed by the team and myself some development work will need to be done to decode the packets.
