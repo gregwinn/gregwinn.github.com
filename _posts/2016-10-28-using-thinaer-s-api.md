@@ -8,6 +8,7 @@ categories: update api iot
 THINaer is an IoT based company that offers an API that provides proximity and environmental information based on deployed <span class="yellow">"iris"</span> (AKA Beacons) and it's <span class="yellow">"Cirrus"</span> (an IoT Gateway). The iris devices are movable or static based on use case and the Cirrus is always static in a fixed location. iris transmits it's signal at a set interval along with any other sensor data the iris may have, this can include; internal chip temperature on the “ii12”, external temperature and relative humidity on the “ii18e”, and finaly movement detection using an accelerometer on the “ii18a”.
 
 <img src="/images/iris64.png" alt="iris from THINaer" />
+![iris from THINaer]({{ site.url }}/images/iris64.png)
 
 
 ### The Hardware Technologie
