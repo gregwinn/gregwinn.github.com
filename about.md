@@ -29,6 +29,6 @@ following TZ I helped to build and develop many other top gaming community sites
 </div>
 
 **Specialties:** My collection of other programming skills has grown to include
-XHTML, CSS, PHP, Python, C#, .NET, MySQL, SQL, Javascript,
+XHTML, CSS, NodeJS, PHP, Python, C#, .NET, MySQL, SQL, Javascript,
 jQuery, AngularJS, and Lua. I continue to build my repertoire with the most
 up-to-date languages.
