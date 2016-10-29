@@ -19,6 +19,45 @@ THINaer is using the latest in BLE 4.1 technologie to transmit its packet over a
   <p>Decoding the packet is only needed if you want to use iris outside of the API.</p>
 </div>
 
+#### THINaer Protocol Breakdown
+Each [ ] represents each byte in the packet and its position.
+
+##### ii12
+<ul>
+  <li>[0] 0x00 (Device Model)</li>
+  <li>[1] 0x5d (Internal Temp Channel)</li>
+  <li>[2] 0x00 (Internal Temp Value 1)</li>
+  <li>[3] 0xfa (Internal Temp Value 2)</li>
+</ul>
+
+Internal temp is represented as a 16-bit unsigned number in fixed point format. In the example above 0x00fa is 250 in decimal which represents 25.0C. To calculate temp you will first need to convert the hex to decimal then use: `decimalValue * 0.1`.
+
+##### ii18e
+<ul>
+  <li>[0] 0x01 (Device Model)</li>
+  <li>[1] 0x44 (Temp Channel)</li>
+  <li>[2] 0x68 (Temp Value 1)</li>
+  <li>[3] 0xac (Temp Value 2)</li>
+  <li>[4] 0x45 (RH Channel)</li>
+  <li>[5] 0x49 (RH Value 1)</li>
+  <li>[6] 0xba (RH Value 2)</li>
+</ul>
+
+The ii18e has a more sensitive temperature chip on board and provides a much more accurate reading. And is still represented in two bites but the calculation changes. `(175.72 * decimalValue) / 65536 - 46.85`
+
+##### ii18a
+<ul>
+  <li>[0] 0x02 (Device Model)</li>
+  <li>[1] 0x5d (Internal Temp Channel)</li>
+  <li>[2] 0x00 (Internal Temp Value 1)</li>
+  <li>[3] 0xfa (Internal Temp Value 2)</li>
+  <li>[4] 0x09 (Motion Channel)</li>
+  <li>[5] 0x00 (Motion Value)</li>
+</ul>
+
+The ii18a also have an internal temperature output but its primary focus is motion. Motion can be detected by watching the motion channel, anything greater than `0x00` is movement.
+
+
 ### The REST API
 In just a few days <span class="red">the company will be releasing a new version of the API (v2)</span>, so everything that follows will talk about using the latest version. The THINaer API provides near-real time access to proximity and environmental information. It also provides historical movement information, this is used for asset tracking use cases, we will talk more about that later. The API also provides a two way look, meaning I can see what a Cirrus can see or I can look from the perspective of an iris.
 
