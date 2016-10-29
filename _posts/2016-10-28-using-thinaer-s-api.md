@@ -27,10 +27,10 @@ In just a few days <span class="red">the company will be releasing a new version
   <p>THINaer API provides near-real time access to proximity and environmental information.</p>
 </div>
 
-Something a little special with this API is that it allows a developer to organize it’s devices based on “clients” and “venues”. This comes into play when you are building a multi tenant application using the API. You can then have many “clients” that belong to your application and assign devices to the client as you see fit, providing some separation for your customers. Within the “client” you can then further organize to “venues”, this often relates to physical locations but are really just groups and can be used anyway you see fit.
+Something special with this API is that it allows a developer to organize it’s devices based on “clients” and “venues”. This comes into play when you are building a multi tenant application using the API. You can then have many “clients” that belong to your application and assign devices to the client as you see fit, providing some separation for your customers. Within the “client” you can then further organize to “venues”, this often relates to physical locations but are really just groups and can be used anyway you see fit.
 
 ### Getting started - Authentication
-Before you can make any requests to get data you need to authenticate with the API. Below is an example using CURL.
+Before you can make any requests to get data, you need to authenticate with the API. Below is an example using CURL.
 
 
 {% highlight bash %}
@@ -57,7 +57,7 @@ Now that you have authenticated lets looks the the devices assigned to your acco
 curl --request GET \
   --url {{url}}/api/v2/application/iris \
   --header 'content-type: application/json' \
-  --header 'token: {{token}}'
+  --header 'token: 876tyui3ol387ui3o93ikejui893eoieku19oke0'
 {% endhighlight %}
 
 #### Cirrus Devices by application
@@ -65,10 +65,10 @@ curl --request GET \
 curl --request GET \
   --url {{url}}/api/v2/application/cirrus \
   --header 'content-type: application/json' \
-  --header 'token: {{token}}'
+  --header 'token: 876tyui3ol387ui3o93ikejui893eoieku19oke0'
 {% endhighlight %}
 
 The two objects returned will display all devices assigned to your account, you can save that data locally or make this request as often as you like. When you buy new devices they will always show under your account and this request will update the moment they are added.
 
 ### Going forward
-If you come back, I will cover some simple use cases and how to get the data out of THINaer! I how now that you have a basic understanding of how to authenticate and make your first request using the new version 2 THINaer API.
+If you come back, I will cover some simple use cases and how to get the data out of THINaer! Now that you have a basic understanding of how to authenticate and make your first request using the new version 2 THINaer API going forward the requests will be much of the same style just with select ID's sent in as headers or GET params.
