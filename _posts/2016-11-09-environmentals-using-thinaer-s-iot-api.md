@@ -16,6 +16,9 @@ This article will assume you have read and understood the “<a href="/update/ap
   <img src="/images/ii18e.png" alt="iris from THINaer" />
 </div>
 
+##### Cirrus (IoT Gateway)
+In the previous article I quickly talk about Cirrus and refer to it as an IoT gateway. Cirrus is simply a listener, it listens for BLE devices to transmit anything and then it sends that data through wifi to the THINaer IoT services to get processed and cleaned up for API usage. So simply said, it’s a “gateway to the internet” for our iris beacons.
+
 ### Setup
 
 Taking the Cirrus, I am going to plug it in and follow the setup instructions included in my box. This involves just a few steps:
@@ -37,10 +40,35 @@ Now let’s place an <span class="yellow">ii18e</span> indoors about 30 feet awa
 
 Let’s do some basic organization of our hardware for later use, using POSTMAN or curl (or any programming language) lets place the two iris at a new “venue” but first let’s create a “venue” called “Home”. The API allows a developer to organize it’s devices based on “clients” and “venues”. This comes into play when you are building a multi tenant application using the API. You can then have many “clients” that belong to your application and assign devices to the client as you see fit, providing some separation for your customers. Within the “client” you can then further organize to “venues”, this often relates to physical locations but are really just groups and can be used anyway you see fit.
 
+_I will cover Clients and Venues and why you should be using them in a future post, but for now just know they are best practice._
+
+##### Create a Client
+So let’s first create a client to assign all my devices too called “Winn”, if I am building a reusable multi tenant product his would happen in a sign up process for my service.
+{% highlight bash %}
+curl --request POST \
+  --url {{url}}/api/v2/client/ \
+  --header 'content-type: application/json' \
+  --header 'token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkIjoiMjAxNi0xMS0wMlQwMTo1NjowNS45NjVaIn0.i6KnWmSqzcXmLt5kxXbPpLfam9EkzXQwWaLRObHJ4lk' \
+  --data '{\n	"name": "Winn"\n}'
+{% endhighlight %}
+
+##### Client Response
+
+{% highlight json %}
+{
+  "name": "Winn",
+  "api_key": "ffed3a40-a753-11e6-8b7e-f524559cb962",
+  "_id": "580504eb8c427a849136a3ee"
+}
+{% endhighlight %}
+
 <div class="banner note">
-  <h3>Venues</h3>
-  <p>Venues often relate to physical locations but are really just groups and can be used anyway you see fit.</p>
+  <h3>Special Note</h3>
+  <p>The `api_key` returned in the client response is used for legacy applications, all new v2 API applications should use the `_id` AKA client_id.</p>
 </div>
+
+##### Create a Venue
+Now we are going to use the id (580504eb8c427a849136a3ee) we got back to create and update the devices.
 
 {% highlight bash %}
 curl --request POST \
@@ -51,8 +79,12 @@ curl --request POST \
   --data '{\n	"name": "Home"\n}'
 {% endhighlight %}
 
+<div class="banner callout">
+  <h3>Venues</h3>
+  <p>Venues often relate to physical locations but are really just groups and can be used anyway you see fit.</p>
+</div>
 
-##### Response
+##### Venue Response
 
 {% highlight json %}
 {
@@ -65,7 +97,7 @@ curl --request POST \
 
 Now lets use the new venue id to assign to the devices so they belong to that venue.
 
-<div class="banner note">
+<div class="banner callout">
   <h3>Best Practice</h3>
   <p>It’s good practice to organize your devices even if you don’t plan to use the venue in your application. It could save you a bunch of time later!</p>
 </div>
